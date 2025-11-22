@@ -26,22 +26,22 @@ export default function ReceiptScanner() {
   }
 
   return (
-    <section className="max-w-6xl mx-auto px-6 mt-6">
-      <div className="bg-slate-900/60 rounded-xl border border-white/10 p-5">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 mt-6">
+      <div className="bg-slate-900/60 rounded-xl border border-white/10 p-4 sm:p-5">
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div>
+          <div className="min-w-0">
             <h3 className="text-white font-semibold">Receipt Scanner</h3>
-            <p className="text-slate-400 text-sm">Upload a receipt image to extract details. Falls back to demo if AI is unavailable.</p>
+            <p className="text-slate-400 text-xs sm:text-sm">Upload a receipt image to extract details. Falls back to demo if AI is unavailable.</p>
           </div>
           <label className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-500/10 text-blue-300 border border-blue-500/20 cursor-pointer">
             <input type="file" accept="image/*" onChange={onUpload} className="hidden" />
             Upload Receipt
           </label>
         </div>
-        {loading && <div className="text-slate-400 mt-3">Processing...</div>}
+        {loading && <div className="text-slate-400 mt-3 text-sm">Processing...</div>}
         {result && (
-          <div className="mt-3 text-slate-300 text-sm">
-            <pre>{JSON.stringify(result, null, 2)}</pre>
+          <div className="mt-3 text-slate-300 text-xs sm:text-sm">
+            <pre className="whitespace-pre-wrap break-words">{JSON.stringify(result, null, 2)}</pre>
           </div>
         )}
       </div>

@@ -28,25 +28,25 @@ export default function Dashboard({ mode = 'home', workspaceId }) {
   }, [mode, workspaceId])
 
   return (
-    <section className="relative max-w-6xl mx-auto px-6 -mt-12">
+    <section className="relative max-w-6xl mx-auto px-4 sm:px-6 -mt-12">
       <div className="flex items-center gap-3 mb-4">
         {advisor.demo && (
           <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs bg-amber-500/10 text-amber-300 border border-amber-500/20">
             Demo Mode
           </span>
         )}
-        <span className="text-slate-300 text-sm">Mode: {mode.charAt(0).toUpperCase()+mode.slice(1)}</span>
+        <span className="text-slate-300 text-xs sm:text-sm">Mode: {mode.charAt(0).toUpperCase()+mode.slice(1)}</span>
       </div>
-      <div className="grid md:grid-cols-3 gap-4">
-        <div className="col-span-2 bg-slate-900/60 rounded-xl border border-white/10 p-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="md:col-span-2 bg-slate-900/60 rounded-xl border border-white/10 p-4 sm:p-5">
           <h3 className="text-white font-semibold mb-2">Overview</h3>
           {summary ? (
-            <pre className="text-slate-300 text-sm whitespace-pre-wrap">{JSON.stringify(summary, null, 2)}</pre>
+            <pre className="text-slate-300 text-xs sm:text-sm whitespace-pre-wrap">{JSON.stringify(summary, null, 2)}</pre>
           ) : (
             <div className="text-slate-400">Loading...</div>
           )}
         </div>
-        <div className="bg-slate-900/60 rounded-xl border border-white/10 p-5">
+        <div className="bg-slate-900/60 rounded-xl border border-white/10 p-4 sm:p-5">
           <h3 className="text-white font-semibold mb-2">Financial Advisor</h3>
           <p className="text-slate-300 text-sm">{advisor.loading ? 'Analyzing...' : advisor.advice}</p>
         </div>
